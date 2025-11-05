@@ -1,0 +1,42 @@
+body{
+background:beige;
+color: black;
+
+}
+#container{
+    
+     /*Espaçamento dentro dos elementos  */
+     border: 3px solid;
+     
+    /*largura da tela*/
+    max-width: 400px;
+    /*centralizer*/
+    margin: 0 auto;
+    border-radius: 15px;
+    color: #fff;
+
+
+    
+
+}
+#container h1 {
+    color: bisque;
+
+
+
+
+
+
+    
+
+}
+#tarefa{
+    border: 2px solid #d3d3d3;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}
+#tarefa ::placeholder{
+    color: black (199,197,187)
+    /* color:transparent */
+}
