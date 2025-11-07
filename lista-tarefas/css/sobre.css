@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+background-color: rgb(84, 124, 124);
+}
+
+.container{
+ background: #fff;
+ max-width: 1000px;
+ margin: 0 auto;
+
+}
+.container h1 {
+    padding: 10px;
+    color: crimson;
+    
+}
+.container h3{
+    color: rgb(52, 35, 99);
+}
+.list-dev {
+    border: 20px;
+    margin: 20px;
+    transition: all 10px;
+}
+
+
+.container h2 {
+    color: rgb(226, 114, 137);
+    padding: 10px;
+    
+}
+
+.links a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 22px;
+    color: rgb(70, 61, 107);
+    
+    
+
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: rgb(125, 72, 129);
+    border: 10px;
+    background: 10px;
+    
+
+}
+
