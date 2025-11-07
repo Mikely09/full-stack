@@ -55,3 +55,13 @@ background-color: rgb(84, 124, 124);
 
 }
 
+.container{
+    /*Espaçamento dentro dos elementos  */
+     border: 3px solid;
+     
+    /*largura da tela*/
+    max-width: 400px;
+    /*centralizer*/
+    margin: 0 auto;
+    border-radius: 15px;
+}

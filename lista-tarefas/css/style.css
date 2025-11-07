@@ -7,6 +7,7 @@ background-size: cover;
 #container{
     
      /*Espaçamento dentro dos elementos  */
+     /*Espaçamento dentro dos elementos  */
      border: 3px solid;
      
     /*largura da tela*/
@@ -43,6 +44,3 @@ background-size: cover;
 
 }
 
-.exercicio-geografia{
-    border: 1px solid;
-}
