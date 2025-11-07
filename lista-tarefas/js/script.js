@@ -1,2 +1,5 @@
-//alert("lá Turma!")
-console.log("ola mikely")
+//Funçao em Javascript
+function adicionar() {
+    alert("Olá Mikely!")
+    console.log("Olá!")
+}
