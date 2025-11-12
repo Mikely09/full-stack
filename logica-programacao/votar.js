@@ -11,7 +11,7 @@ if (idade >= 16); {
 } if (idade >=16 && idade <18) {
 alert ("Voto opsional");
 } else { 
- if ("Voto obrigatorio") 
+ if ("Voto obrigatorio") ;
 
 }
 
