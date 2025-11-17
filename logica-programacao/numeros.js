@@ -1,14 +1,14 @@
 /* Crie um programa que peça um número e mostre uma mensagem
 dizendo se ele é positivo, negativo ou igual a zero
 */
-let número = 29;
+let número = prompt ("Digite um número")
 
-if (número > 29);{
+if (número > 0){
 console.log("é positivo");
 
-} if( numero = 0){
+}  else if( número = >0 ){
     alert ("negativo");
     } else { 
- if ("igual a zero");
+ alert ("igual a zero");
 
 }
