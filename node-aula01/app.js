@@ -8,6 +8,12 @@ const produtos =[
     {id:2, nome: 'Produto B', preco: 150},
     {id:2, nome: 'Produto B', preco: 200},
 ];
+//Variavel de times
+const times = [
+{id: 1, nome: 'Santos', ano:1912},
+{id: 1, nome: 'Paulista', ano:1913},
+{id: 1, nome: 'São paulo', ano:1914},
+];
 
 //Criar funçao
 //Rota principal
@@ -25,6 +31,14 @@ app.get('/home', (req,res)=>{
     console.log("olá:",__dirname);
     res.sendFile(__dirname +'/public/home.html');
 });
+
+//Rota times
+app.get('/time',(req,res)=> {
+    console.log("times")
+res.send (times);
+
+});
+
 
 //Executando o servidor
 app.listen(port,() => {
