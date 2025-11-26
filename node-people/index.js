@@ -14,6 +14,12 @@ const nomes = [
   { id: 5, nome: "Doris", idade: "33" },
 ];
 
+//Criando Funçoes Auxiliares
+//Retornando o objeto por id
+function buscarNomePorId(id) {
+    return nomes.filter((nome) => nome.id == id)
+}
+
 
 //Rota teste
 app.get("/teste", (req,res) => {
@@ -22,7 +28,16 @@ app.get("/teste", (req,res) => {
 });
 
 //Buscando nomes (listaNomes)
-app.get("/nomes",(req,res)=> {
-    res.send(nomes)
-})
+app.get("/listaNomes",(req,res)=> {
+    res.send(nomes);
 
+})
+//Buscando por ID
+app.get("/listaNomes/:id",(req,res)=> {
+let index = req.params.id;
+
+res.json(buscarNomePorId(index))
+});
+
+//Rota principal
+app.get("/principal",)
