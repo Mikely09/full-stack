@@ -40,4 +40,7 @@ res.json(buscarNomePorId(index))
 });
 
 //Rota principal
-app.get("/principal",)
+app.get("/principal", (req,res) => {
+    res.send("Está funcionando!");
+
+});
