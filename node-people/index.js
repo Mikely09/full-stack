@@ -44,6 +44,12 @@ let index = req.params.id;
 res.json(buscarNomePorId(index))
 });
 
+//Criando Post para cadastrar
+app.post("/listaNomes", (req,res)=>{
+ nomes.push(req.body);
+ res.status(201).send('Nomes cadastrado com sucesso!');
+});
+
 //Criando rota excluir
 app.delete("/listaNomes/:id", (req,res) => {
     let index = buscarIdNomes(req.params.id);
