@@ -38,6 +38,17 @@ function buscarIdNomes (id){
     return nomes.findIndex((nome)=> nome.id == id);
 }
 
+//Criando Funçoes Auxiliares
+//Retornando o objeto por id
+function buscarTimesporId(id) {
+    return times.filter((times) => times.id == id)
+}
+
+//Pegar a posição ou index do elemento do array por id
+function buscarTimesporId (id){
+    return times.findIndex((times)=> times.id == id);
+}
+
 
 //Rota teste
 app.get("/teste", (req,res) => {
@@ -66,8 +77,13 @@ app.post("/listaNomes", (req,res)=>{
 //Criando rota excluir
 app.delete("/listaNomes/:id", (req,res) => {
     let index = buscarIdNomes(req.params.id)
+    
+    //se não encontar,retorna erro
+    if (index === -1){
+        return res.status(404).send(`Nenhum nome com id ${id} foi encontrado`)
+    }
     nomes.splice(index,1);
-res.send(`Nomes com id ${req,params.id} excluida com sucesso!`)
+nomes.splice(`Nomes com id ${req.params.id}excluida com sucesso!`);
 });
 
 //Rota principal
@@ -76,37 +92,32 @@ app.get("/principal", (req,res) => {
 
 });
 
-//Criando Funçoes Auxiliares
-//Retornando o objeto por id
-function buscarTimesporId(id) {
-    return times.filter((times) => times.id == id)
-}
-
-
-
-
 //Buscando times (listaTimes)
-app.get("/listaTimes", (req,res)=>{
-    res.send(times);
+app.get("/listaTimes", (req, res) => {
+   res.send(times);
 })
 
 //Buscando por ID
-app.get("/listaTimes/:id",(req,res)=> {
+app.get("/listaTimes/:id",(req,res) => {
 let index = req.params.id;
 
 res.json(buscarTimesporId(index))
 });
 
+
 //Criando Post para cadastar
-app.post("/listaTimes",(req,res)=>{
+app.post("/listaTimes",(req,res) => {
     times.push(req.body);
     res.status(201).send('Times cadastrado com sucesso!');
 });
  
-//Criando Rota para excluir
-app.delete("/listaTimes/:id",(req,res)=>{
+//Criando Rota excluir
+app.delete("/listaTimes/:id",(req,res) =>{
     let index = buscarTimesporId(req.params.id)
-    nomes.splice(index,1);
-    res.send(`Times com id ${req,params.id} excluida com sucesso!`)
+    times.splice(index,1);
+    res.send(`Times com id ${id} excluido com sucesso!`)
+
+
 });
+
 
