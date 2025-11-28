@@ -76,14 +76,17 @@ app.post("/listaNomes", (req,res)=>{
 
 //Criando rota excluir
 app.delete("/listaNomes/:id", (req,res) => {
-    let index = buscarIdNomes(req.params.id)
+    let id = req.params.id;
+    let index = buscarIdNomes(req.params.id);
     
     //se não encontar,retorna erro
     if (index === -1){
         return res.status(404).send(`Nenhum nome com id ${id} foi encontrado`)
     }
+
     nomes.splice(index,1);
-nomes.splice(`Nomes com id ${req.params.id}excluida com sucesso!`);
+nomes.send(`Nomes com id ${req.params.id} excluida com sucesso!`)
+
 });
 
 //Rota principal
@@ -92,6 +95,25 @@ app.get("/principal", (req,res) => {
 
 });
 
+//Rota alterar
+app.put("/listaNomes/:id",(req,res)=>{
+    let index = buscarIdNomes(req.params.id);
+    nomes[index].nome = req.body.nome;
+    nomes[index].idade = req.body.idade;
+
+res.json(nomes);
+});
+
+//Rota alterar
+app.put("/listaTimes/:id",(req,res)=>{
+    let index = buscarTimesporId (req.params.id);
+    times [index].nome = req.body.time;
+    times[index].estado = req.body.time;
+    times[index].titulos = req.body.time;
+})
+
+
+// ROTAS de times
 //Buscando times (listaTimes)
 app.get("/listaTimes", (req, res) => {
    res.send(times);
@@ -112,12 +134,10 @@ app.post("/listaTimes",(req,res) => {
 });
  
 //Criando Rota excluir
-app.delete("/listaTimes/:id",(req,res) =>{
-    let index = buscarTimesporId(req.params.id)
-    times.splice(index,1);
-    res.send(`Times com id ${id} excluido com sucesso!`)
-
-
+app.delete("/listaTimes/:id", (req, res) => {
+  let index = buscarIdTimes(req.params.id);
+  times.splice(index, 1);
+  res.send(`Nomes com id ${req.params.id} excluida com sucesso!`);
 });
 
 
