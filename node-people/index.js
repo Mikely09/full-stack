@@ -107,10 +107,12 @@ res.json(nomes);
 //Rota alterar
 app.put("/listaTimes/:id",(req,res)=>{
     let index = buscarTimesporId (req.params.id);
-    times [index].nome = req.body.time;
-    times[index].estado = req.body.time;
-    times[index].titulos = req.body.time;
-})
+    times [index].nome = req.body.nome;
+    times[index].estado = req.body.estado;
+    times[index].titulos = req.body.titulos;
+
+    res.json(times);
+});
 
 
 // ROTAS de times
