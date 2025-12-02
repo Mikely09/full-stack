@@ -5,6 +5,7 @@ app.get ("/",(req,res)=> {
 res.send ("Olá Node.js");
 });
 
+app.use(express.json());
 export default app;
 
 const cadastros = [
@@ -39,5 +40,50 @@ endereco: "Rua Central, 999"
 
 //Criando Funçoes Auxiliares
 //Retornar objeto por id
-function buscarNomeporid()
+function buscarCadastroporid (id){
+    return cadastros.findIndex((cadastros) => cadastros.id==id)
 
+};
+function buscaridCadastro (id){
+    return cadastros.filter((cadastro)=> cadastro.id == id);
+}
+
+//Buscando cadastro (listaCadastros)
+app.get("/listaCadastros",(req,res)=> {
+    res.send(cadastros);
+
+})
+
+//Buscando por id
+app.get("/listaCadastros/:id",(req,res)=> {
+let app = req.params.id;
+
+res.json(buscaridCadastro(app))
+});
+
+//Criando post para cadastrar pessoas
+app.post("/listaCadastros", (req,res)=>{
+ cadastros.push(req.body);
+ res.status(201).send('Pessoas cadastradas com sucesso!');
+});
+
+//Criando Rota alterar cadastros
+app.put("/listaCadastros/:id",(req,res)=> {
+    let index = buscarCadastroporid(req.params.id);
+    cadastros[index].nome = req.body.nome;
+    cadastros[index].telefone = req.body.telefone;
+    cadastros[index].email = req.body.email;
+    cadastros[index].idade = req.body.idade;
+    cadastros[index].idade = req.body.idade;
+    cadastros[index].endereco = req.body.endereco;
+
+res.json(cadastros);
+});
+
+//Criando Rota excluir
+//Rota delete
+app.delete("/listaCadastros/:id", (req, res) => {
+  let app = buscarCadastroporid(req.params.id);
+  cadastros.splice(app, 1);
+  res.send(`Cadastros com id ${req.params.id} excluido com sucesso!`);
+});
