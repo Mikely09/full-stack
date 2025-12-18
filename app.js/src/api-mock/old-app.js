@@ -1,11 +1,13 @@
-import express from "express";
-import conexao from "../infra/conexao.js";
+import express from 'express';
+import conexao from '../infra/conexao.js'
 
 const app = express();
+
 
 // Indicar para express ler o body com json
 app.use(express.json());
 
+// Rota principal
 app.get("/", (req, res) => {
     res.send("Olá Copa do Mundo!");
 });
@@ -35,10 +37,9 @@ app.post('/selecoes', (req, res) => {
     const sql = "INSERT INTO selecoes SET?;";
 
     conexao.query(sql, selecao, () => {
-        res.json({ mensagem: "Cadastrado com sucesso!"});
+        res.json({ mensagem: "Cadastrado com sucesso!" });
     })
 });
-
 
 
 // Deletando registro
@@ -47,7 +48,7 @@ app.delete('/selecoes/:id', (req, res) => {
     const sql = "delete from selecoes where id=?";
 
     conexao.query(sql, id, () => {
-        res.json({ menssagem: "Deletando com sucesso"});
+        res.json({ menssagem: "Deletando com sucesso" });
     });
 });
 
